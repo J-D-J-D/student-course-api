@@ -1,22 +1,32 @@
-name: Tests CI
+name: CI - Tests & Quality Check
 
 on:
   push:
-    branches:
-      - master
+    branches: [ main, develop ]
   pull_request:
-    branches:
-      - master
+    branches: [ main, develop ]
 
 jobs:
-  test:
+  build-and-test:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: 20
+
       - name: Install dependencies
-        run: npm install
+        run: npm ci
+
+      - name: Run ESLint
+        run: npm run lint
+
+      - name: Run Prettier Check
+        run: npx prettier --check "src/**/*.js" "tests/**/*.js"
+
+      - name: Run Tests
+        run: npm test -- --coverage
