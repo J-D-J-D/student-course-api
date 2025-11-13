@@ -19,10 +19,12 @@ test('listCourses should return paginated courses', () => {
   const req = { query: { page: 1, limit: 2 } };
   const res = mockRes();
   ctrl.listCourses(req, res);
-  expect(res.json).toHaveBeenCalledWith(expect.objectContaining({
-    courses: expect.any(Array),
-    total: 3,
-  }));
+  expect(res.json).toHaveBeenCalledWith(
+    expect.objectContaining({
+      courses: expect.any(Array),
+      total: 3,
+    })
+  );
   expect(res.json.mock.calls[0][0].courses.length).toBe(2);
 });
 
@@ -66,10 +68,12 @@ test('createCourse should return 201 when valid', () => {
   const res = mockRes();
   ctrl.createCourse(req, res);
   expect(res.status).toHaveBeenCalledWith(201);
-  expect(res.json).toHaveBeenCalledWith(expect.objectContaining({
-    title: 'Bio',
-    teacher: 'Dr. Marie',
-  }));
+  expect(res.json).toHaveBeenCalledWith(
+    expect.objectContaining({
+      title: 'Bio',
+      teacher: 'Dr. Marie',
+    })
+  );
 });
 
 test('deleteCourse should return 404 if not found', () => {
@@ -90,8 +94,10 @@ test('updateCourse should update title and teacher', () => {
   const req = { params: { id: 1 }, body: { title: 'Advanced Math', teacher: 'Mr. Newton' } };
   const res = mockRes();
   ctrl.updateCourse(req, res);
-  expect(res.json).toHaveBeenCalledWith(expect.objectContaining({
-    title: 'Advanced Math',
-    teacher: 'Mr. Newton',
-  }));
+  expect(res.json).toHaveBeenCalledWith(
+    expect.objectContaining({
+      title: 'Advanced Math',
+      teacher: 'Mr. Newton',
+    })
+  );
 });

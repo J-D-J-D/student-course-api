@@ -51,10 +51,12 @@ test('createStudent should return 201 when valid', () => {
   const res = mockRes();
   ctrl.createStudent(req, res);
   expect(res.status).toHaveBeenCalledWith(201);
-  expect(res.json).toHaveBeenCalledWith(expect.objectContaining({
-    name: 'John',
-    email: 'john@example.com',
-  }));
+  expect(res.json).toHaveBeenCalledWith(
+    expect.objectContaining({
+      name: 'John',
+      email: 'john@example.com',
+    })
+  );
 });
 
 test('deleteStudent should return 404 if not found', () => {
@@ -75,8 +77,10 @@ test('updateStudent should update name and email', () => {
   const req = { params: { id: 1 }, body: { name: 'Alice Updated', email: 'alice2@example.com' } };
   const res = mockRes();
   ctrl.updateStudent(req, res);
-  expect(res.json).toHaveBeenCalledWith(expect.objectContaining({
-    name: 'Alice Updated',
-    email: 'alice2@example.com',
-  }));
+  expect(res.json).toHaveBeenCalledWith(
+    expect.objectContaining({
+      name: 'Alice Updated',
+      email: 'alice2@example.com',
+    })
+  );
 });
