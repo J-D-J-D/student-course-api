@@ -57,3 +57,24 @@ npm run dev
 
 Codacy grade: 
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/4e559bfdb1e64997be96d4b156739fb9)](https://app.codacy.com/gh/J-D-J-D/student-course-api/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
+
+
+# Documentation Technique — School API (Node.js / Express)
+
+## Présentation du projet
+
+Ce projet est une **API backend** développée en **Node.js** avec **Express**.  
+Elle gère la création, la lecture, la mise à jour et la suppression (CRUD) de :
+- **Étudiants**
+- **Cours**
+- **Inscriptions**
+
+Le projet illustre l’application des bonnes pratiques de **qualité logicielle** :
+- Tests unitaires automatisés avec Jest  
+- Analyse statique avec ESLint & Prettier  
+- Intégration continue (CI) avec GitHub Actions  
+- Documentation dynamique Swagger  
+- Suivi de qualité via Codacy  
+- Gouvernance Git (Pull Requests, templates, commits conventionnels)
+
+---
